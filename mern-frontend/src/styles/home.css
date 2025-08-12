@@ -1,0 +1,45 @@
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.loading,
+.error-message {
+  color: #d9534f; /* bootstrap red for errors */
+  font-weight: bold;
+}
+
+.logout-button {
+  margin-top: 20px;
+  background-color: #007bff; /* bootstrap blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #0056b3;
+}
+
+.profile-button {
+  background-color: #28a745; /* bootstrap green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-right: 20px;
+}
+
+.profile-button:hover {
+  background-color: #1e7e34;
+}
