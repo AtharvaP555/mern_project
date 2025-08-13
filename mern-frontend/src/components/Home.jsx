@@ -50,7 +50,6 @@ const Home = () => {
   return (
     <div className="container">
       <h1>Welcome, {profile?.name}!</h1>
-      <p>Email: {profile?.email}</p>
 
       {/* Added profile button */}
       <button

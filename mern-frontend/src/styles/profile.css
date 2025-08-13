@@ -1,19 +1,31 @@
-/* profile.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  font-family: "Poppins", sans-serif;
+}
 
 .container {
   max-width: 400px;
   margin: 60px auto;
-  background: white;
+  background: rgba(233, 227, 223, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(233, 227, 223, 0.2);
   padding: 30px 40px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  color: #e9e3df;
+  box-shadow: 0 0 12px rgba(255, 122, 48, 0.4), 0 0 24px rgba(255, 122, 48, 0.2);
+  /* Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 24px;
-  color: #333;
+  color: #e9e3df;
 }
 
 .form-group {
@@ -24,17 +36,17 @@ h2 {
   display: block;
   font-weight: 600;
   margin-bottom: 6px;
-  color: #333;
+  color: #ff7a30;
 }
 
 .form-group p {
   padding: 8px 12px;
-  background-color: #f5f7fa;
+  background-color: rgba(233, 227, 223, 0.1);
   border-radius: 6px;
-  border: 1.5px solid #ccc;
+  border: 1.5px solid rgba(233, 227, 223, 0.2);
   margin: 0;
   font-size: 16px;
-  color: #555;
+  color: #e9e3df;
 }
 
 .form-group input[type="text"],
@@ -42,21 +54,22 @@ h2 {
 .form-group input[type="password"] {
   width: 100%;
   padding: 10px 12px;
-  border: 1.5px solid #ccc;
+  background-color: rgba(233, 227, 223, 0.05);
+  border: 1.5px solid rgba(233, 227, 223, 0.3);
   border-radius: 6px;
   font-size: 16px;
-  transition: border-color 0.3s ease;
+  color: #e9e3df;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group input[type="password"]:focus {
-  border-color: #007bff;
+.form-group input:focus {
+  border-color: #ff7a30;
   outline: none;
+  background-color: rgba(233, 227, 223, 0.1);
 }
 
 .error-message {
-  color: #d9534f;
+  color: #ff7a30;
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: 600;
@@ -71,18 +84,27 @@ h2 {
 }
 
 .button-group button {
-  background-color: #007bff;
-  color: white;
+  background-color: #ff7a30;
+  color: #000000;
   border: none;
   padding: 12px 22px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   flex: 1;
   max-width: 120px;
 }
 
 .button-group button:hover {
-  background-color: #0056b3;
+  background-color: #e46d29;
+  transform: scale(1.05);
+}
+
+/* Keyframes for fade-in */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

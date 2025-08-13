@@ -1,89 +1,124 @@
-/* auth.css */
-
-body,
-html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-}
-
+/* Page container */
 .auth-container {
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center; /* vertical center */
-  height: 100vh; /* full viewport height */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000000; /* Warm beige background */
+  font-family: "Poppins", sans-serif;
+  margin: 0;
 }
 
-.container {
+/* Card */
+.auth-card {
+  background-color: rgba(233, 227, 223, 0.08); /* Deep blue card */
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
   max-width: 400px;
-  background: white;
-  padding: 30px 40px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin: 0; /* remove the old margin for vertical centering */
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 24px;
-  color: #333;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  padding: 10px 12px;
-  margin-bottom: 16px;
-  border: 1.5px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-button {
-  background-color: #007bff;
-  border: none;
-  padding: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.4s ease-in-out;
   color: white;
-  font-weight: 600;
-  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(255, 122, 48, 0.4), 0 0 24px rgba(255, 122, 48, 0.2);
+}
+
+/* Headings */
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* Input groups */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+}
+
+.input-icon {
+  margin-right: 0.75rem;
+  color: #465c88;
+  font-size: 1.2rem;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.input-group input::placeholder {
+  color: #666;
+}
+
+/* Buttons */
+.auth-btn {
+  width: 100%;
+  background-color: #ff7a30; /* Bright orange accent */
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.auth-btn:hover {
+  background-color: #e96c24; /* Slightly darker orange */
 }
 
+/* Error message */
 .error-message {
-  color: #d9534f;
-  margin-bottom: 16px;
-  font-size: 14px;
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
+/* Link */
 .link {
   text-align: center;
-  margin-top: 12px;
+  margin-top: 1rem;
 }
 
-.link a {
-  color: #007bff;
+.auth-card .link a {
+  color: #ff7a30; /* Orange links */
+  font-weight: 500;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.link a:hover {
-  text-decoration: underline;
+.auth-card .link a:hover {
+  color: #e96c24;
+}
+
+/* Remove any unwanted margins on body/html */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000000; /* Ensure beige everywhere */
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

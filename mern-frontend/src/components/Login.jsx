@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/auth.css";
+import { FaEnvelope, FaLock } from "react-icons/fa";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,7 +25,7 @@ export default function Login() {
         localStorage.setItem("token", data.token);
         navigate("/home");
       } else {
-        setError(data.msg || "Login failed");
+        setError(data.msg || "Invalid credentials");
       }
     } catch (err) {
       setError("Something went wrong");
@@ -33,28 +34,38 @@ export default function Login() {
 
   return (
     <div className="auth-container">
-      <div className="container">
+      <div className="auth-card">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Login</button>
+          <div className="input-group">
+            <FaEnvelope className="input-icon" />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <FaLock className="input-icon" />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" className="auth-btn">
+            Login
+          </button>
         </form>
         {error && <p className="error-message">{error}</p>}
         <p className="link">
-          Don't have an account? <Link to="/signup">Signup here</Link>
+          Don't have an account? <Link to="/signup">Sign up here</Link>
         </p>
       </div>
     </div>
