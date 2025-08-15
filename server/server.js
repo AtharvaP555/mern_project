@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const authRoutes = require("./routes/auth");
+const skillOfferRoutes = require("./routes/skillOfferRoutes");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/skill-offers", skillOfferRoutes);
 
 // Connect to MongoDB
 mongoose

@@ -1,73 +1,228 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  background-color: #000;
   font-family: "Poppins", sans-serif;
+  color: #e9e3df;
 }
 
-.container {
-  max-width: 400px;
-  margin: auto;
-  padding: 2rem;
-  text-align: center;
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: rgba(233, 227, 223, 0.08);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(233, 227, 223, 0.2);
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 122, 48, 0.4), 0 0 24px rgba(255, 122, 48, 0.2);
-  color: #e9e3df;
-
-  /* Animation */
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease-out forwards;
+  padding: 0.8rem 1.5rem;
+  border-bottom: 1px solid rgba(233, 227, 223, 0.2);
 }
 
-.loading,
-.error-message {
+.site-name {
   color: #ff7a30;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0 0.5rem;
+  width: 250px;
+}
+
+.search-icon {
+  color: #ff7a30;
+  font-size: 1rem;
+  margin-right: 0.4rem;
+}
+
+.search-bar {
+  padding: 0.4rem 0;
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  color: #fff;
+}
+
+/* Align icons + button in navbar */
+.aligned-nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-icon {
+  color: #ff7a30;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+}
+
+/* My Skill Offers Button */
+.my-skill-offers-btn {
+  background-color: #ff7a30;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.my-skill-offers-btn:hover {
+  background-color: #ff8f55;
+  transform: scale(1.05);
+}
+
+/* Grid for Skill Offers */
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+  padding: 2rem;
+}
+
+.offer-card {
+  background: rgba(233, 227, 223, 0.08);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(233, 227, 223, 0.2);
+  box-shadow: 0 0 12px rgba(255, 122, 48, 0.4), 0 0 24px rgba(255, 122, 48, 0.2);
+  transition: transform 0.2s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* sticks buttons to bottom */
+  min-height: 220px;
+}
+
+.offer-card:hover {
+  transform: scale(1.03);
+}
+
+.offer-card h3 {
+  margin: 0 0 0.5rem;
+  color: #ff7a30;
+}
+
+.offer-card p {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.offer-category,
+.offer-price {
+  font-size: 0.85rem;
+  color: #bbb;
+  margin: 0.2rem 0;
+}
+
+.offer-user {
+  font-size: 0.8rem;
+  color: #bbb;
+}
+
+/* Loading/Error */
+.loading,
+.error-message,
+.no-results {
+  text-align: center;
+  color: #ff7a30;
+  margin-top: 2rem;
+}
+
+/* Edit/Delete buttons inside offer cards */
+.edit-btn,
+.delete-btn {
+  background-color: transparent;
+  border: 1px solid rgba(233, 227, 223, 0.3);
+  color: #e9e3df;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+  background-color: #ff7a30;
+  color: #000;
+}
+
+.delete-btn:hover {
+  background-color: #ff3b30;
+  border-color: #ff3b30;
+  color: #fff;
+}
+
+.offer-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Form Container */
+.form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+.form-title {
+  color: #ff7a30;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.glass-form {
+  background: rgba(233, 227, 223, 0.08);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(233, 227, 223, 0.2);
+  box-shadow: 0 0 12px rgba(255, 122, 48, 0.4), 0 0 24px rgba(255, 122, 48, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.glass-form label {
   font-weight: bold;
 }
 
-/* Buttons */
-.logout-button {
-  margin-top: 20px;
-  background-color: #ff7a30;
-  color: #000000;
+.glass-form input,
+.glass-form textarea,
+.glass-form select {
+  padding: 0.5rem;
+  border-radius: 6px;
   border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
-.logout-button:hover {
-  background-color: #e46d29;
-  transform: scale(1.05);
+.glass-form input:focus,
+.glass-form textarea:focus,
+.glass-form select:focus {
+  outline: 2px solid #ff7a30;
 }
 
-.profile-button {
-  background-color: #465c88;
-  color: #e9e3df;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-right: 20px;
+.glass-form textarea {
+  resize: vertical;
 }
 
-.profile-button:hover {
-  background-color: #3b4d73;
-  transform: scale(1.05);
+/* Dropdown Styling */
+.glass-form select {
+  background-color: black;
+  color: white;
+  border: 1px solid rgba(255, 122, 48, 0.4);
 }
 
-/* Keyframes for fade-in */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.glass-form select option {
+  background-color: black;
+  color: white;
 }

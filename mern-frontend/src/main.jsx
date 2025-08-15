@@ -6,6 +6,9 @@ import Signup from "./components/Signup";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import PrivateRoute from "./components/PrivateRoute";
+import MySkillOffers from "./components/MySkillOffers";
+import AddSkillOffer from "./components/AddSkillOffer";
+import EditSkillOffer from "./components/EditSkillOffer";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -13,6 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
         <Route
           path="/home"
           element={
@@ -26,6 +30,30 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           element={
             <PrivateRoute>
               <Profile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/my-skill-offers"
+          element={
+            <PrivateRoute>
+              <MySkillOffers />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/add-skill-offer"
+          element={
+            <PrivateRoute>
+              <AddSkillOffer />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/edit-skill-offer/:id"
+          element={
+            <PrivateRoute>
+              <EditSkillOffer />
             </PrivateRoute>
           }
         />
